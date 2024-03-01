@@ -34,7 +34,8 @@
 					{{ form_row(registrationForm.ville_societe,{'label_attr': {'class': 'label-large'}}) }}
 
 
-					{{ form_row(registrationForm.email) }}
+					{{ form_row(registrationForm.email,{'label_attr': {'class': 'label-large'}}) }}
+                    {{ form_row(registrationForm.images,{'label_attr': {'class': 'label-large'}}) }}
 					{{ form_row(registrationForm.plainPassword, {
                         label: 'Password'
                      }) }} 

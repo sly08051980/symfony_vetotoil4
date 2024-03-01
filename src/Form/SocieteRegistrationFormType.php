@@ -103,8 +103,18 @@ class SocieteRegistrationFormType extends AbstractType
                 // 'data' => new \DateTime(), 
                 // 'disabled' => true, 
             ])
-            ->add('date_resiliation_societe')
-            ->add('date_validation_societe')
+            ->add('date_resiliation_societe', DateType::class, [
+                'label' => 'Date de création',
+                'widget' => 'single_text',
+                // 'data' => new \DateTime(), 
+                // 'disabled' => true, 
+            ])
+            ->add('date_validation_societe', DateType::class, [
+                'label' => 'Date de création',
+                'widget' => 'single_text',
+                // 'data' => new \DateTime(), 
+                // 'disabled' => true, 
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                
                 'mapped' => false,
