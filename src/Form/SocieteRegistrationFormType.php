@@ -99,6 +99,7 @@ class SocieteRegistrationFormType extends AbstractType
             ])
             ->add('date_creation_societe', DateType::class, [
                 'label' => 'Date de création',
+                'widget' => 'single_text',
                 // 'data' => new \DateTime(), 
                 // 'disabled' => true, 
             ])

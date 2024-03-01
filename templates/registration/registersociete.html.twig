@@ -15,14 +15,14 @@
 			</div>
 		</div>
 
-		{{ form_errors(registrationForm) }}
+		 {{ form_errors(registrationForm) }}
 
-		{{ form_start(registrationForm) }}
+		{{ form_start(registrationForm) }} 
 
 		<div class="card custom-box-shadow">
 			<div class="row justify-content-center">
 
-				<div class="col-lg-6">
+				 <div class="col-lg-6">
 					{{ form_row(registrationForm.siret,{'label_attr': {'class': 'label-large'}}) }}
 					{{ form_row(registrationForm.nom_societe,{'label_attr': {'class': 'label-large'}}) }}
 					{{ form_row(registrationForm.nom_dirigeant,{'label_attr': {'class': 'label-large'}}) }}
@@ -37,16 +37,16 @@
 					{{ form_row(registrationForm.email) }}
 					{{ form_row(registrationForm.plainPassword, {
                         label: 'Password'
-                     }) }}
-					{{ form_widget(registrationForm.date_creation_patient, {'label': false, 'attr': {'hidden': 'true'}}) }}
+                     }) }} 
+					{{ form_row(registrationForm.date_creation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
 
-					{{ form_row(registrationForm.date_fin_patient, {'label': false, 'attr': {'hidden': 'true'}}) }}
-
-					{{ form_row(registrationForm.agreeTerms) }}
+					{{ form_row(registrationForm.date_resiliation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
+ {{ form_row(registrationForm.date_validation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
+					{{ form_row(registrationForm.agreeTerms) }} 
 				</div>
 			</div>
 
-			{{ form_end(registrationForm) }}
+			 {{ form_end(registrationForm) }}
 		</div>
 	</div>
 {% endblock %}
