@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	<div class="container pb-5 pt-5" id="inscription">
+
+
+		<div class="row pb-5 ">
+			<div class="card custom-box-shadow">
+				<div class="col-12 justify-content-center py-5">
+					<h1 class="text-center">Inscription</h1>
+				</div>
+			</div>
+		</div>
+
+		{{ form_errors(registrationForm) }}
+
+		{{ form_start(registrationForm) }}
+
+		<div class="card custom-box-shadow">
+			<div class="row justify-content-center">
+
+				<div class="col-lg-6">
+					{{ form_row(registrationForm.nom_patient,{'label_attr': {'class': 'label-large'}}) }}
+					{{ form_row(registrationForm.prenom_patient,{'label_attr': {'class': 'label-large'}}) }}
+					{{ form_row(registrationForm.adresse_patient,{'label_attr': {'class': 'label-large'}}) }}
+					{{ form_row(registrationForm.complement_adresse_patient,{'label_attr': {'class': 'label-large'}}) }}
+					{{ form_row(registrationForm.code_postal_patient,{'label_attr': {'class': 'label-large'}}) }}
+				</div>
+				<div class="col-lg-6">
+					{{ form_row(registrationForm.ville_patient,{'label_attr': {'class': 'label-large'}}) }}
+					{{ form_row(registrationForm.telephone_patient,{'label_attr': {'class': 'label-large'}}) }}
+
+
+					{{ form_row(registrationForm.email) }}
+					{{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                     }) }}
+					{{ form_widget(registrationForm.date_creation_patient, {'label': false, 'attr': {'hidden': 'true'}}) }}
+
+					{{ form_row(registrationForm.date_fin_patient, {'label': false, 'attr': {'hidden': 'true'}}) }}
+
+					{{ form_row(registrationForm.agreeTerms) }}
+				</div>
+			</div>
+
+			{{ form_end(registrationForm) }}
+		</div>
+	</div>
+{% endblock %}

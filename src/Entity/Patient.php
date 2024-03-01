@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Entity;
-
-use App\Repository\PatientRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
+use App\Repository\PatientRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: PatientRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class Patient implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -33,7 +34,7 @@ class Patient implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\Column(length: 50)]
+
     private ?string $nom_patient = null;
 
     #[ORM\Column(length: 50)]
@@ -77,6 +78,7 @@ class Patient implements UserInterface, PasswordAuthenticatedUserInterface
         $this->soigners = new ArrayCollection();
         $this->rdvs = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -352,4 +354,5 @@ class Patient implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }

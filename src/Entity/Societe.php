@@ -93,6 +93,7 @@ class Societe implements UserInterface, PasswordAuthenticatedUserInterface
         $this->rdvs = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -167,7 +168,6 @@ class Societe implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-
     public function getNomSociete(): ?string
     {
         return $this->nom_societe;
