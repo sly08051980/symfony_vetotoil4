@@ -1,53 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription Professionnel
-{% endblock %}
+{% block title %}Inscription Professionnel{% endblock %}
 
 {% block body %}
-	<div class="container pb-5 pt-5" id="inscription">
+<div class="container pb-5 pt-5" id="inscription">
+    <div class="row pb-5 ">
+        <div class="card custom-box-shadow">
+            <div class="col-12 justify-content-center py-5">
+                <h1 class="text-center">Inscription Societe</h1>
+            </div>
+        </div>
+    </div>
 
+    {{ form_start(registrationFormSociete) }} 
 
-		<div class="row pb-5 ">
-			<div class="card custom-box-shadow">
-				<div class="col-12 justify-content-center py-5">
-					<h1 class="text-center">Inscription</h1>
-				</div>
-			</div>
-		</div>
+    <div class="card custom-box-shadow">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+            
+                {{ form_row(registrationFormSociete.siret, {'label_attr': {'class': 'label-large'}}) }}
+                {{ form_row(registrationFormSociete.nom_societe, {'label_attr': {'class': 'label-large'}}) }}
+                {{ form_row(registrationFormSociete.nom_dirigeant, {'label_attr': {'class': 'label-large'}}) }}
+                {{ form_row(registrationFormSociete.adresse_societe, {'label_attr': {'class': 'label-large'}}) }}
+                {{ form_row(registrationFormSociete.complement_adresse_societe, {'label_attr': {'class': 'label-large'}}) }}
+                {{ form_row(registrationFormSociete.code_postal_societe, {'label_attr': {'class': 'label-large'}}) }}
+                {{ form_row(registrationFormSociete.ville_societe, {'label_attr': {'class': 'label-large'}}) }}
+            </div>
+            <div class="col-lg-6">
+                 {{ form_row(registrationFormSociete.telephone_societe, {'label_attr': {'class': 'label-large'}}) }}
+                   {{ form_row(registrationFormSociete.telephone_dirigeant, {'label_attr': {'class': 'label-large'}}) }}
+                     {{ form_row(registrationFormSociete.profession_societe, {'label_attr': {'class': 'label-large'}}) }}
+             
+                {{ form_row(registrationFormSociete.email, {'label_attr': {'class': 'label-large'}}) }}
+                {{ form_row(registrationFormSociete.images, {'label_attr': {'class': 'label-large'}}) }}
+                {{ form_row(registrationFormSociete.plainPassword, {'label': 'Password'}) }}
+                {{ form_widget(registrationFormSociete.date_creation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
+                {{ form_widget(registrationFormSociete.date_resiliation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
+                {{ form_widget(registrationFormSociete.date_validation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
+                {{ form_row(registrationFormSociete.agreeTerms) }} 
+            </div>
+        </div>
+    </div>
 
-		 {{ form_errors(registrationForm) }}
-
-		{{ form_start(registrationForm) }} 
-
-		<div class="card custom-box-shadow">
-			<div class="row justify-content-center">
-
-				 <div class="col-lg-6">
-					{{ form_row(registrationForm.siret,{'label_attr': {'class': 'label-large'}}) }}
-					{{ form_row(registrationForm.nom_societe,{'label_attr': {'class': 'label-large'}}) }}
-					{{ form_row(registrationForm.nom_dirigeant,{'label_attr': {'class': 'label-large'}}) }}
-					{{ form_row(registrationForm.adresse_societe,{'label_attr': {'class': 'label-large'}}) }}
-					{{ form_row(registrationForm.complement_adresse_societe,{'label_attr': {'class': 'label-large'}}) }}
-				</div>
-				<div class="col-lg-6">
-					{{ form_row(registrationForm.code_postal_societe,{'label_attr': {'class': 'label-large'}}) }}
-					{{ form_row(registrationForm.ville_societe,{'label_attr': {'class': 'label-large'}}) }}
-
-
-					{{ form_row(registrationForm.email,{'label_attr': {'class': 'label-large'}}) }}
-                    {{ form_row(registrationForm.images,{'label_attr': {'class': 'label-large'}}) }}
-					{{ form_row(registrationForm.plainPassword, {
-                        label: 'Password'
-                     }) }} 
-					{{ form_row(registrationForm.date_creation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
-
-					{{ form_row(registrationForm.date_resiliation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
- {{ form_row(registrationForm.date_validation_societe, {'label': false, 'attr': {'hidden': 'true'}}) }} 
-					{{ form_row(registrationForm.agreeTerms) }} 
-				</div>
-			</div>
-
-			 {{ form_end(registrationForm) }}
-		</div>
-	</div>
+    {# Fin du formulaire #}
+    {{ form_end(registrationFormSociete) }}
+</div>
 {% endblock %}

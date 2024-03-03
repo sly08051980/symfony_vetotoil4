@@ -25,10 +25,10 @@ class SocieteRegistrationFormType extends AbstractType
     {
         $builder
             ->add('siret', TextType::class, [
-                'label' => 'Nom de la Société',
+                'label' => 'Siret',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('roles')
+        
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
 // this is read and encoded in the controller
@@ -70,7 +70,8 @@ class SocieteRegistrationFormType extends AbstractType
             ])
             ->add('complement_adresse_societe', TextType::class, [
                 'label' => 'Complement Adresse',
-                'attr' => ['class' => 'form-control']
+                'attr' => ['class' => 'form-control'],
+                'required' => false,
             ])
             ->add('code_postal_societe', TextType::class, [
                 'label' => 'Code Postal',
@@ -100,18 +101,21 @@ class SocieteRegistrationFormType extends AbstractType
             ->add('date_creation_societe', DateType::class, [
                 'label' => 'Date de création',
                 'widget' => 'single_text',
+                'required' => false,
                 // 'data' => new \DateTime(), 
                 // 'disabled' => true, 
             ])
             ->add('date_resiliation_societe', DateType::class, [
                 'label' => 'Date de création',
                 'widget' => 'single_text',
+                'required' => false,
                 // 'data' => new \DateTime(), 
                 // 'disabled' => true, 
             ])
             ->add('date_validation_societe', DateType::class, [
                 'label' => 'Date de création',
                 'widget' => 'single_text',
+                'required' => false,
                 // 'data' => new \DateTime(), 
                 // 'disabled' => true, 
             ])

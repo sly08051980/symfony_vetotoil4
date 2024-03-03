@@ -50,22 +50,22 @@ class RegistrationController extends AbstractController
     #[Route('/register/societe', name: 'app_register_societe')]
     public function registerSociete(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
-        $user = new Societe();
-        $user->setDateCreationSociete(new \DateTime());
-        $form = $this->createForm(SocieteRegistrationFormType::class, $user);
+        $societe = new Societe();
+        $societe->setDateCreationSociete(new \DateTime());
+        $form = $this->createForm(SocieteRegistrationFormType::class, $societe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setRoles(['ROLE_SOCIETE']);
+            $societe->setRoles(['ROLE_SOCIETE']);
             // encode the plain password
-            $user->setPassword(
+            $societe->setPassword(
                 $userPasswordHasher->hashPassword(
-                    $user,
+                    $societe,
                     $form->get('plainPassword')->getData()
                 )
             );
 
-            $entityManager->persist($user);
+            $entityManager->persist($societe);
             $entityManager->flush();
             // do anything else you need here, like send an email
 
@@ -73,7 +73,8 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render('registration/registersociete.html.twig', [
-            'registrationForm' => $form,
+            'registrationFormSociete' => $form->createView(),
+            'errors' => $form->getErrors(true, false),
         ]);
     }
 }
